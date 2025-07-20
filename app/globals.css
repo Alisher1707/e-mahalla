@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: 60 100% 97.8%; /* ivory */
+    --foreground: 200 20% 25%; /* darkslategrey */
+
+    --card: 60 100% 97.8%;
+    --card-foreground: 200 20% 25%;
+
+    --popover: 60 100% 97.8%;
+    --popover-foreground: 200 20% 25%;
+
+    --primary: 200 20% 25%; /* darkslategrey */
+    --primary-foreground: 60 100% 97.8%; /* ivory */
+
+    --secondary: 200 20% 35%; /* slightly lighter darkslategrey for secondary */
+    --secondary-foreground: 60 100% 97.8%;
+
+    --muted: 200 20% 35%;
+    --muted-foreground: 200 20% 25%; /* darkslategrey for visibility on ivory background */
+
+    --accent: 200 20% 35%;
+    --accent-foreground: 60 100% 97.8%;
+
+    --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 200 20% 40%; /* slightly lighter darkslategrey for border */
+    --input: 200 20% 40%;
+    --ring: 200 20% 25%;
+    --radius: 0.5rem;
+
+    /* Status Badge Colors (using darkslategrey shades for light mode) */
+    --status-open: 200 20% 45%; /* A lighter darkslategrey for 'open' */
+    --status-open-foreground: 60 100% 97.8%; /* ivory */
+    --status-closed: 200 20% 20%; /* A darker darkslategrey for 'closed' */
+    --status-closed-foreground: 60 100% 97.8%; /* ivory */
+    --status-canceled: 0 84.2% 60.2%; /* Red for 'canceled' (as requested for red) */
+    --status-canceled-foreground: 0 0% 98%;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 200 20% 25%; /* darkslategrey */
+    --foreground: 60 100% 97.8%; /* ivory */
+
+    --card: 200 20% 25%;
+    --card-foreground: 60 100% 97.8%;
+
+    --popover: 200 20% 25%;
+    --popover-foreground: 60 100% 97.8%;
+
+    --primary: 60 100% 97.8%; /* ivory */
+    --primary-foreground: 200 20% 25%; /* darkslategrey */
+
+    --secondary: 200 20% 15%; /* slightly darker darkslategrey for secondary */
+    --secondary-foreground: 60 100% 97.8%;
+
+    --muted: 200 20% 15%;
+    --muted-foreground: 60 100% 97.8%; /* ivory for visibility on darkslategrey background */
+
+    --accent: 200 20% 15%;
+    --accent-foreground: 60 100% 97.8%;
+
+    --destructive: 0 62.8% 30.6%; /* Darker red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 200 20% 10%; /* slightly darker darkslategrey for border */
+    --input: 200 20% 10%;
+    --ring: 60 100% 97.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Input placeholder color */
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.7; /* Make it slightly transparent */
+  }
+}
+
+/* Sidebar specific styles */
+.sidebar {
+  @apply fixed left-0 top-0 h-full z-50; /* Ensure it's fixed and on top */
+  width: 20%; /* 20% width for sidebar */
+  min-width: 200px; /* Minimum width to ensure content is readable */
+  max-width: 300px; /* Maximum width */
+}
+
+.light .sidebar {
+  background-color: hsl(var(--background)); /* ivory */
+  color: hsl(var(--foreground)); /* darkslategrey */
+  border-right: 1px solid hsl(var(--border)); /* Add border for light mode */
+}
+
+.dark .sidebar {
+  background-color: hsl(var(--background)); /* darkslategrey */
+  color: hsl(var(--foreground)); /* ivory */
+  border-right: 1px solid hsl(var(--border)); /* Add border for dark mode */
+}
+
+/* Sidebar menu button colors */
+.sidebar-menu-button {
+  @apply flex items-center gap-2; /* Ensure SVG and text are side-by-side */
+  color: hsl(var(--foreground)); /* Text color for menu items */
+}
+
+.sidebar-menu-button:hover {
+  background-color: hsl(var(--secondary)); /* Hover background */
+}
+
+.sidebar-menu-button[data-active="true"] {
+  background-color: hsl(var(--secondary)); /* Active background */
+}
+
+/* Table Header Text Color */
+.table-header-text {
+  color: hsl(var(--foreground)); /* Ensure header text is visible */
+}
+
+/* Mobile Sidebar (Sheet) specific styles */
+.sheet-content-sidebar {
+  background-color: hsl(var(--background)); /* Use main background for sheet */
+  color: hsl(var(--foreground)); /* Use main foreground for sheet text */
+}
+
+.dark .sheet-content-sidebar {
+  background-color: hsl(var(--background)); /* Use main background for sheet */
+  color: hsl(var(--foreground)); /* Use main foreground for sheet text */
+}
