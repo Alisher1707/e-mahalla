@@ -15,10 +15,9 @@ interface ClientLayoutContentProps {
   children: React.ReactNode
   defaultOpen: boolean
   isLoginPage: boolean
-  pathname: string
 }
 
-export function ClientLayoutContent({ children, defaultOpen, isLoginPage, pathname }: ClientLayoutContentProps) {
+export function ClientLayoutContent({ children, defaultOpen, isLoginPage }: ClientLayoutContentProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
       <TooltipProvider>
@@ -27,11 +26,11 @@ export function ClientLayoutContent({ children, defaultOpen, isLoginPage, pathna
             <DataProvider>
               <SidebarProvider defaultOpen={defaultOpen}>
                 {!isLoginPage && <AppSidebar />}
-                <SidebarInset className={cn("h-screen", isLoginPage ? "w-full" : "md:ml-[20%] md:w-[calc(100%-20%)]")}>
+                <SidebarInset className={cn("min-h-screen", isLoginPage ? "w-full" : "md:ml-[20%] md:w-[calc(100%-20%)]")}>
                   <main
                     className={cn(
                       isLoginPage
-                        ? "flex-1 flex justify-start pt-40 px-0" // <<<<<< BU YERDA O'ZGARTIRILDI: pl-60 o'rniga px-0, items-center olib tashlandi
+                        ? "h-screen w-full relative"
                         : "flex-1 p-4 md:p-6 overflow-x-auto mx-auto max-w-screen-xl",
                     )}
                   >

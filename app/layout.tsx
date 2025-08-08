@@ -30,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ClientLayoutContent defaultOpen={defaultOpen} isLoginPage={isLoginPage} pathname={pathname}>
+        <ClientLayoutContent defaultOpen={defaultOpen} isLoginPage={isLoginPage}>
           {children}
         </ClientLayoutContent>
       </body>

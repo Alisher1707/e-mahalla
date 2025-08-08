@@ -15,18 +15,18 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
 import type { SidebarContextType } from "@/components/ui/sidebar-context"
 
-const SIDEBAR_COOKIE_NAME = "sidebar:state"
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16rem"
-const SIDEBAR_WIDTH_MOBILE = "18rem"
-const SIDEBAR_WIDTH_ICON = "3rem"
-const SIDEBAR_KEYBOARD_SHORTCUT = "b"
+// Sidebar constants for future use
+// const SIDEBAR_COOKIE_NAME = "sidebar:state"
+// const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
+// const SIDEBAR_WIDTH = "16rem"
+// const SIDEBAR_WIDTH_MOBILE = "18rem"
+// const SIDEBAR_WIDTH_ICON = "3rem"
+// const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
 const SidebarContext = React.createContext<SidebarContextType | undefined>(undefined)
 
 export function SidebarProvider({
   children,
-  defaultOpen = false,
 }: {
   children: React.ReactNode
   defaultOpen?: boolean
